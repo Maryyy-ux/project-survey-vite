@@ -1,101 +1,145 @@
 import React, { useState } from 'react';
+import './Quiz.css';
 
-const Quiz = () => {
-    // Estados para almacenar las respuestas
+
+// Import houses images//Importa las imágenes de las casas
+import gryffindorLogo from './logos/gryffindor.jpg';
+import slytherinLogo from './logos/slytherin.jpg';
+import ravenclawLogo from './logos/ravenclaw.jpg';
+import hufflepuffLogo from './logos/hufflepuff.jpg';
+
+
+function Quiz() {
     const [house, setHouse] = useState('');
-    const [patronus, setPatronus] = useState('');
-    const [favouriteSpell, setFavouriteSpell] = useState('');
-    const [submitted, setSubmitted] = useState(false);
+    const [spell, setSpell] = useState('');
+    const [creature, setCreature] = useState('');
+    const [currentQuestion, setCurrentQuestion] = useState(0); // Current question control//Controla la pregunta actual
+    const [showResult, setShowResult] = useState(false); // State to control if renders resoult//Estado para controlar si mostramos el resultado
 
-    // Función de manejo de la presentación del formulario
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setSubmitted(true);
+    // handle House change//Controla el cambio de casa
+    const handleHouseChange = (selectedHouse) => {
+        setHouse(selectedHouse);
     };
 
-    // Formulario
+    const handleNext = () => {
+        if (currentQuestion < 2) {
+            setCurrentQuestion(currentQuestion + 1);
+        } else {
+            setShowResult(true); // Show result at last question//Mostrar el resultado cuando se llegue a la última pregunta
+        }
+    };
+
+    //Restart quiz//Boton para reiniciar el cuestionario
+    const handleRestart = () => {
+        setHouse('');
+        setSpell('');
+        setCreature('');
+        setCurrentQuestion(0);
+        setShowResult(false);
+    };
+
+
     return (
         <div className="quiz-container">
-            <h1>Harry Potter Quiz</h1>
-            {!submitted ? (
-                <form onSubmit={handleSubmit}>
-                    {/* Pregunta 1: Selección de casa */}
-                    <div className="form-group">
-                        <label htmlFor="house">¿A qué casa de Hogwarts perteneces?</label>
-                        <select
-                            id="house"
-                            value={house}
-                            onChange={(e) => setHouse(e.target.value)}
-                            required
-                        >
-                            <option value="">Elige una opción</option>
-                            <option value="Gryffindor">Gryffindor</option>
-                            <option value="Hufflepuff">Hufflepuff</option>
-                            <option value="Ravenclaw">Ravenclaw</option>
-                            <option value="Slytherin">Slytherin</option>
-                        </select>
-                    </div>
-
-                    {/* Pregunta 2: Radio buttons */}
-                    <div className="form-group">
-                        <label>¿Cuál es tu patronus?</label>
-                        <div>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="Ciervo"
-                                    checked={patronus === 'Ciervo'}
-                                    onChange={(e) => setPatronus(e.target.value)}
-                                    required
-                                />
-                                Ciervo
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="Nutria"
-                                    checked={patronus === 'Nutria'}
-                                    onChange={(e) => setPatronus(e.target.value)}
-                                />
-                                Nutria
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="Fénix"
-                                    checked={patronus === 'Fénix'}
-                                    onChange={(e) => setPatronus(e.target.value)}
-                                />
-                                Fénix
-                            </label>
+            {/* Mostrar preguntas si no se ha enviado el formulario */}
+            {!showResult && (
+                <>
+                    {currentQuestion === 0 && (
+                        <div className={`question-block ${currentQuestion === 0 ? 'active' : 'hidden'}`}>
+                            <h2>Which house do you belong to?</h2>
+                            <div>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="house"
+                                        value="gryffindor"
+                                        onChange={() => handleHouseChange('gryffindor')}
+                                    />
+                                    Gryffindor
+                                    <img src={gryffindorLogo} alt="Gryffindor logo" className="house-logo" />
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="house"
+                                        value="slytherin"
+                                        onChange={() => handleHouseChange('slytherin')}
+                                    />
+                                    Slytherin
+                                    <img src={slytherinLogo} alt="Slytherin logo" className="house-logo" />
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="house"
+                                        value="ravenclaw"
+                                        onChange={() => handleHouseChange('ravenclaw')}
+                                    />
+                                    Ravenclaw
+                                    <img src={ravenclawLogo} alt="Ravenclaw logo" className="house-logo" />
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="house"
+                                        value="hufflepuff"
+                                        onChange={() => handleHouseChange('hufflepuff')}
+                                    />
+                                    Hufflepuff
+                                    <img src={hufflepuffLogo} alt="Hufflepuff logo" className="house-logo" />
+                                </label>
+                            </div>
+                            <button onClick={handleNext} className="next-button">Next</button>
                         </div>
-                    </div>
+                    )}
 
-                    {/* Pregunta 3: Input de texto */}
-                    <div className="form-group">
-                        <label htmlFor="favouriteSpell">¿Cuál es tu hechizo favorito?</label>
-                        <input
-                            type="text"
-                            id="favouriteSpell"
-                            value={favouriteSpell}
-                            onChange={(e) => setFavouriteSpell(e.target.value)}
-                            required
+                    {currentQuestion === 1 && (
+                        <div className={`question-block ${currentQuestion === 1 ? 'active' : 'hidden'}`}>
+                            <h2>Which is your favourite spell?</h2>
+                            <input
+                                type="text"
+                                placeholder="Write your favourite spell..."
+                                value={spell}
+                                onChange={(e) => setSpell(e.target.value)}
+                            />
+                            <button onClick={handleNext} className="next-button">Next</button>
+                        </div>
+                    )}
+
+                    {currentQuestion === 2 && (
+                        <div className={`question-block ${currentQuestion === 2 ? 'active' : 'hidden'}`}>
+                            <h2>Which is your favourite magic creature?</h2>
+                            <select value={creature} onChange={(e) => setCreature(e.target.value)}>
+                                <option value="">Select one magic creature</option>
+                                <option value="hipogrifo">Hippogryph</option>
+                                <option value="dragón">Dragon</option>
+                                <option value="elfo">House elf</option>
+                            </select>
+                            <button onClick={handleNext} className="next-button">Submit</button>
+                        </div>
+                    )}
+                </>
+            )}
+
+            {/* Mostrar el resultado cuando se haya completado el cuestionario */}
+            {showResult && (
+                <div className="result-container">
+                    <h2>Quiz result</h2>
+                    <p>Preferred house: {house}</p>
+                    <p>Favourite spell: {spell}</p>
+                    <p>Favourite magic creature: {creature}</p>
+                    {house && (
+                        <img
+                            src={`/logos/${house}.jpg`}
+                            alt={`Logo of ${house}`}
+                            className="logo"
                         />
-                    </div>
-
-                    {/* Botón de enviar */}
-                    <button type="submit">Enviar</button>
-                </form>
-            ) : (
-                <div className="summary">
-                    <h2>Resumen de tus respuestas:</h2>
-                    <p><strong>Casa:</strong> {house}</p>
-                    <p><strong>Patronus:</strong> {patronus}</p>
-                    <p><strong>Hechizo Favorito:</strong> {favouriteSpell}</p>
+                    )}
+                    <button onClick={handleRestart}>Start again</button>
                 </div>
             )}
         </div>
     );
-};
+}
 
 export default Quiz;
