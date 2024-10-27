@@ -1,3 +1,12 @@
-export const App = () => {
-  return <div>Find me in src/app.jsx!</div>;
-};
+import React from 'react';
+import Quiz from './Quiz';
+
+function App() {
+  return (
+    <div className="App">
+      <Quiz />
+    </div>
+  );
+}
+
+export default App;
