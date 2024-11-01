@@ -41,7 +41,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('gryffindor')}
                 />
                 Gryffindor
-                <img src="/logos/gryffindor.jpg" alt="Logo de Gryffindor" className="house-logo" />
+                <img src="./logos/gryffindor.jpg" alt="Logo de Gryffindor" className="house-logo" />
               </label>
               <label>
                 <input
@@ -61,7 +61,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('ravenclaw')}
                 />
                 Ravenclaw
-                <img src="/logos/ravenclaw.jpg" alt="Logo de Ravenclaw" className="house-logo" loading="lazy" />
+                <img src="./logos/ravenclaw.jpg" alt="Logo de Ravenclaw" className="house-logo" loading="lazy" />
               </label>
               <label>
                 <input
@@ -71,7 +71,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('hufflepuff')}
                 />
                 Hufflepuff
-                <img src="/logos/hufflepuff.jpg" alt="Logo de Hufflepuff" className="house-logo" loading="lazy" />
+                <img src="./logos/hufflepuff.jpg" alt="Logo de Hufflepuff" className="house-logo" loading="lazy" />
               </label>
             </div>
           </div>
