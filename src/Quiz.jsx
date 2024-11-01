@@ -5,7 +5,7 @@ import './Quiz.css';
 // Import houses images//Importa las imágenes de las casas
 import gryffindorLogo from './logos/gryffindor.jpg';
 import slytherinLogo from './logos/slytherin.jpg';
-import ravenclawLogo from './logos/ravenclaw.jpg';
+import ravenclawLogo from './logos/raveclaw.jpg';
 import hufflepuffLogo from './logos/hufflepuff.jpg';
 
 
@@ -56,7 +56,7 @@ function Quiz() {
                                         onChange={() => handleHouseChange('gryffindor')}
                                     />
                                     Gryffindor
-                                    <img src={gryffindorLogo} alt="Gryffindor logo" className="house-logo" />
+                                    <img src={gryffindorLogo} alt="Logo de gryffindor" className="house-logo" />
                                 </label>
                                 <label>
                                     <input
@@ -66,7 +66,7 @@ function Quiz() {
                                         onChange={() => handleHouseChange('slytherin')}
                                     />
                                     Slytherin
-                                    <img src={slytherinLogo} alt="Slytherin logo" className="house-logo" />
+                                    <img src={slytherinLogo} alt="Logo de slytherin" className="house-logo" />
                                 </label>
                                 <label>
                                     <input
@@ -76,7 +76,7 @@ function Quiz() {
                                         onChange={() => handleHouseChange('ravenclaw')}
                                     />
                                     Ravenclaw
-                                    <img src={ravenclawLogo} alt="Ravenclaw logo" className="house-logo" />
+                                    <img src={ravenclawLogo} alt="Logo de ravenclaw" className="house-logo" />
                                 </label>
                                 <label>
                                     <input
@@ -86,7 +86,7 @@ function Quiz() {
                                         onChange={() => handleHouseChange('hufflepuff')}
                                     />
                                     Hufflepuff
-                                    <img src={hufflepuffLogo} alt="Hufflepuff logo" className="house-logo" />
+                                    <img src={hufflepuffLogo} alt="Logo de hufflepuff" className="house-logo" />
                                 </label>
                             </div>
                             <button onClick={handleNext} className="next-button">Next</button>
@@ -131,7 +131,7 @@ function Quiz() {
                     {house && (
                         <img
                             src={`/logos/${house}.jpg`}
-                            alt={`Logo of ${house}`}
+                            alt={`Logo de ${house}`}
                             className="logo"
                         />
                     )}
