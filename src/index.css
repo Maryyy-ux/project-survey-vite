@@ -74,3 +74,63 @@ button:focus-visible {
     color: blue;
   }
 }
+
+/* Para pantallas grandes */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 3.5em;
+  }
+
+  button {
+    padding: 0.8em 1.5em;
+    font-size: 1.1em;
+  }
+}
+
+/* Para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.8em;
+  }
+
+  button {
+    padding: 0.7em 1.2em;
+    font-size: 1em;
+  }
+}
+
+/* Para pantallas pequeñas (teléfonos) */
+@media (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2.4em;
+  }
+
+  button {
+    padding: 0.6em 1em;
+    font-size: 0.9em;
+  }
+}
+
+/* Para pantallas extra pequeñas (iPhone 5) */
+@media (max-width: 320px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  button {
+    padding: 0.5em 0.8em;
+    font-size: 0.8em;
+  }
+}

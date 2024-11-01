@@ -65,16 +65,55 @@ body {
 
 
 
-@media (max-width: 600px) {
+/* Para pantallas grandes (desktops) */
+@media (min-width: 1200px) {
   .quiz-container {
+    max-width: 900px;
+  }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body {
+    padding: 20px;
+  }
+
+  .quiz-container {
+    padding: 30px;
+    max-width: 700px;
+  }
+
+  .result-container {
+    max-width: 500px;
+  }
+}
+
+/* Para pantallas pequeñas (teléfonos) */
+@media (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+
+  .quiz-container {
+    padding: 20px;
+  }
+
+  .result-container {
+    padding: 15px;
+  }
+}
+
+/* Para pantallas extra pequeñas (iPhone 5) */
+@media (max-width: 320px) {
+  body {
+    padding: 15px;
+  }
+
+  .quiz-container {
+    padding: 15px;
+  }
+
+  .result-container {
     padding: 10px;
-  }
-
-  .next-button {
-    padding: 8px 15px;
-  }
-
-  .house-logo {
-    width: 30px;
   }
 }
