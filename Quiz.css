@@ -27,37 +27,75 @@
 
 .question-block {
     display: none;
-    /* Oculta todos los bloques por defecto */
 }
 
 .question-block.active {
     display: block;
-    /* Solo muestra el bloque activo */
+
 }
 
-/* Media query para pantallas pequeñas */
-@media (max-width: 600px) {
+/* Para pantallas grandes (desktops) */
+@media (min-width: 1200px) {
     .question-block {
-        display: none;
-        /* Asegúrate de que todos los bloques estén ocultos en móviles */
-    }
-
-    .question-block.active {
-        display: block;
-        /* Solo muestra el bloque activo */
+        max-width: 900px;
     }
 }
 
-@media (max-width: 600px) {
-    .quiz-container {
+/* Para pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    body {
+        padding: 20px;
+        /* Añade algo de padding para centrar mejor el contenido */
+    }
+
+    .question-block {
+        max-width: 600px;
+    }
+
+    .house-logo {
+        width: 40px;
+        height: 30px;
+    }
+}
+
+/* Para pantallas pequeñas (teléfonos) */
+@media (max-width: 767px) {
+    body {
+        padding: 15px;
+    }
+
+    .question-block {
         padding: 10px;
     }
 
     .next-button {
         padding: 8px 15px;
+        font-size: 14px;
     }
 
     .house-logo {
         width: 30px;
+        height: 25px;
+    }
+}
+
+/* Para pantallas extra pequeñas (iPhone 5) */
+@media (max-width: 320px) {
+    body {
+        padding: 15px;
+    }
+
+    .question-block {
+        padding: 15px;
+    }
+
+    .next-button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .house-logo {
+        width: 25px;
+        height: 20px;
     }
 }
