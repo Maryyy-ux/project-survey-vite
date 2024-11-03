@@ -3,10 +3,10 @@ import './Quiz.css';
 
 
 // Import houses images//Importa las imágenes de las casas
-import gryffindorLogo from '/logos/gryffindor.jpg';
-import slytherinLogo from '/logos/slytherin.jpg';
-import ravenclawLogo from '/logos/raveclaw.jpg';
-import hufflepuffLogo from '/logos/hufflepuff.jpg';
+import gryffindorLogo from './gryffindor.jpg';
+import slytherinLogo from './slytherin.jpg';
+import ravenclawLogo from './raveclaw.jpg';
+import hufflepuffLogo from './hufflepuff.jpg';
 
 
 function Quiz() {
