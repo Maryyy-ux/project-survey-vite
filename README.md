@@ -1,6 +1,6 @@
 # React + Vite
 
-Netlify link: https://iridescent-paprenjak-8c0d40.netlify.app/
+Netlify link:https://673d12655dca8a8eb87a4d16--maryyy-ux-harry-potter-quiz.netlify.app/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
