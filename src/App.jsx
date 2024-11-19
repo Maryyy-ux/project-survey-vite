@@ -41,7 +41,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('gryffindor')}
                 />
                 Gryffindor
-                <img src="/logos/gryffindor.jpg" alt="Logo de Gryffindor" className="house-logo" />
+                <img src="/gryffindor.jpg" alt="Logo de Gryffindor" className="house-logo" />
               </label>
               <label>
                 <input
@@ -51,7 +51,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('slytherin')}
                 />
                 Slytherin
-                <img src="/logos/slytherin.jpg" alt="Logo de Slytherin" className="house-logo" loading="lazy" />
+                <img src="/slytherin.jpg" alt="Logo de Slytherin" className="house-logo" loading="lazy" />
               </label>
               <label>
                 <input
@@ -61,7 +61,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('ravenclaw')}
                 />
                 Ravenclaw
-                <img src="/logos/ravenclaw.jpg" alt="Logo de Ravenclaw" className="house-logo" loading="lazy" />
+                <img src="/ravenclaw.jpg" alt="Logo de Ravenclaw" className="house-logo" loading="lazy" />
               </label>
               <label>
                 <input
@@ -71,7 +71,7 @@ function Quiz() {
                   onChange={() => handleHouseChange('hufflepuff')}
                 />
                 Hufflepuff
-                <img src="/logos/hufflepuff.jpg" alt="Logo de Hufflepuff" className="house-logo" loading="lazy" />
+                <img src="/hufflepuff.jpg" alt="Logo de Hufflepuff" className="house-logo" loading="lazy" />
               </label>
             </div>
           </div>
@@ -95,9 +95,9 @@ function Quiz() {
             <label htmlFor="creature-select">Select one magic creature:</label>
             <select id="creature-select" value={creature} onChange={handleCreatureChange}>
               <option value="">Select one magic creature</option>
-              <option value="hipogrifo">Hippogryph</option>
-              <option value="dragón">Dragon</option>
-              <option value="elfo">House elf</option>
+              <option value="Hippogryph">Hippogryph</option>
+              <option value="Dragon">Dragon</option>
+              <option value="House elf">House elf</option>
             </select>
           </div>
 
@@ -114,7 +114,7 @@ function Quiz() {
           <p>Favourite magic creature: {creature}</p>
           {house && (
             <img
-              src={`/logos/${house}.jpg`}
+              src={`${house}.jpg`}
               alt={`Logo de ${house}`}
               className="logo"
             />
